@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Neon Snake 🐍</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-grid"></div>
+
+  <main class="game-container">
+    <header class="game-header">
+      <h1 class="game-title">NEON SNAKE</h1>
+      <div class="scoreboard">
+        <div class="score-card">
+          <span class="score-label">PUNTOS</span>
+          <span id="current-score" class="score-value">0</span>
+        </div>
+        <div class="score-card high-score">
+          <span class="score-label">RÉCORD</span>
+          <span id="high-score" class="score-value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      
+      <div id="start-overlay" class="overlay active">
+        <div class="overlay-content">
+          <div class="arcade-badge">ARCADE EDITION</div>
+          <h2>¿Listo para jugar?</h2>
+          <p>Usa las flechas o WASD para guiar la serpiente y come los orbes de energía.</p>
+          <div class="difficulty-select">
+            <button class="diff-btn" data-speed="130">Fácil</button>
+            <button class="diff-btn active" data-speed="90">Normal</button>
+            <button class="diff-btn" data-speed="60">Experto</button>
+          </div>
+          <button id="start-btn" class="action-btn">▶ INICIAR JUEGO</button>
+        </div>
+      </div>
+
+      <div id="game-over-overlay" class="overlay">
+        <div class="overlay-content">
+          <h2 class="game-over-title">GAME OVER</h2>
+          <p class="final-score-text">Puntuación final: <span id="final-score">0</span></p>
+          <div id="new-record-badge" class="new-record hidden">🎉 ¡NUEVO RÉCORD! 🎉</div>
+          <button id="restart-btn" class="action-btn">🔄 JUGAR DE NUEVO</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controles táctiles / móviles -->
+    <div class="dpad-container">
+      <button class="dpad-btn up" data-dir="UP">▲</button>
+      <div class="dpad-row">
+        <button class="dpad-btn left" data-dir="LEFT">◀</button>
+        <button class="dpad-btn down" data-dir="DOWN">▼</button>
+        <button class="dpad-btn right" data-dir="RIGHT">▶</button>
+      </div>
+    </div>
+
+    <footer class="game-footer">
+      <span>Controles: <b>Flechas / W A S D</b> &bull; Pausa: <b>Espacio</b></span>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
